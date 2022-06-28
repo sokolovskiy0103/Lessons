@@ -1,0 +1,4 @@
+10:42:52 | 127.0.0.1 |  /localhost/article.php?_ijt=7v30la52u8a8p0i0agmv7kupc2 | 
+10:43:15 | 127.0.0.1 |  /localhost/index.php | 
+10:43:17 | 127.0.0.1 |  /localhost/article.php?id=2 | http://localhost:63342/localhost/index.php
+10:43:19 | 127.0.0.1 |  /localhost/index.php 'ADD' | http://localhost:63342/localhost/article.php?id=2

@@ -5,6 +5,7 @@ $articles = getArticles();
 $id = (int)($_GET['id'] ?? '');
 $post = $articles[$id] ?? null;
 $hasPost = ($post !== null);
+addLog();
 
 if ($hasPost) {
     removeArticle($id);

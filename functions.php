@@ -2,7 +2,7 @@
 
 	// your functions may be here
 
-	/* start --- black box */
+
 	function getArticles() : array{
 		return json_decode(file_get_contents('db/articles.json'), true);
 	}
@@ -40,7 +40,7 @@
 		return true;
 	}
 
-	function editArticle(int $id, string $title, string $content)
+	function editArticle(int $id, string $title, string $content): bool
     {
         $articles = getArticles();
         if(isset($articles[$id])){
@@ -52,6 +52,17 @@
             saveArticles($articles);
             return true;
         }
-
+        return true;
     }
-	/* end --- black box */
+
+    function addLog()
+    {
+        $time = date("H:i:s");
+        $ip = $_SERVER['REMOTE_ADDR']??"";
+        $url = $_SERVER['REQUEST_URI'];
+        $refUrl = $_SERVER['HTTP_REFERER']??"";
+        $logName = "logs/" . date("Y-m-d"). ".txt";
+        $str = "$time | $ip |  $url | $refUrl\n";
+        file_put_contents($logName,$str,FILE_APPEND);
+    }
+

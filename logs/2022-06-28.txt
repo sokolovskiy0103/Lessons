@@ -1,0 +1,14 @@
+10:42:52 | 127.0.0.1 |  /localhost/article.php?_ijt=7v30la52u8a8p0i0agmv7kupc2 | 
+10:43:15 | 127.0.0.1 |  /localhost/index.php | 
+10:43:17 | 127.0.0.1 |  /localhost/article.php?id=2 | http://localhost:63342/localhost/index.php
+10:43:19 | 127.0.0.1 |  /localhost/index.php | http://localhost:63342/localhost/article.php?id=2
+11:46:06 | 127.0.0.1 |  /localhost/ | 
+11:46:07 | 127.0.0.1 |  /localhost/article.php?id=2 | http://localhost:63342/localhost/
+11:46:10 | 127.0.0.1 |  /localhost/edit.php?id=2 | http://localhost:63342/localhost/article.php?id=2
+11:46:20 | 127.0.0.1 |  /localhost/edit.php?id=2 | http://localhost:63342/localhost/edit.php?id=2
+11:46:31 | 127.0.0.1 |  /localhost/edit.php?id=2%27Opa%27 | 
+11:46:33 | 127.0.0.1 |  /localhost/index.php | http://localhost:63342/localhost/edit.php?id=2%27Opa%27
+11:47:40 | 127.0.0.1 |  /localhost/article.php?id=6 | http://localhost:63342/localhost/index.php
+11:47:42 | 127.0.0.1 |  /localhost/index.php | http://localhost:63342/localhost/article.php?id=6
+11:58:31 | 127.0.0.1 |  /localhost/add.php?_ijt=lpnb2dt2q2en609dlag1cr1aa2 | 
+11:58:53 | 127.0.0.1 |  /localhost/add.php?_ijt=lpnb2dt2q2en609dlag1cr1aa2 | 

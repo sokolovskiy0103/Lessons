@@ -9,6 +9,7 @@ $id = $_GET['id'];
 $title = $articles[$id]['title'];
 $content = $articles[$id]['content'];
 $message = "";
+addLog();
 
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
@@ -23,8 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 ?>
 <form method="post">
-    <input type="text" value="<?= $title ?>" name="title" placeholder="Title"><br>
-    <input type="text" value="<?= $content ?>" name="content" placeholder="Content">
+    <label>
+        Title <input type="text" value="<?= $title ?>" name="title" placeholder="Title">
+    </label><br>
+    <label>
+        Content <input type="text" value="<?= $content ?>" name="content" placeholder="Content">
+    </label>
     <button>OK</button>
 </form>
 <?php if ($err === true): ?>
