@@ -12,3 +12,15 @@
 11:47:42 | 127.0.0.1 |  /localhost/index.php | http://localhost:63342/localhost/article.php?id=6
 11:58:31 | 127.0.0.1 |  /localhost/add.php?_ijt=lpnb2dt2q2en609dlag1cr1aa2 | 
 11:58:53 | 127.0.0.1 |  /localhost/add.php?_ijt=lpnb2dt2q2en609dlag1cr1aa2 | 
+11:58:57 | 127.0.0.1 |  /localhost/add.php?_ijt=lpnb2dt2q2en609dlag1cr1aa2 | 
+12:08:29 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:08:55 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:08:56 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:09:16 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:09:19 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:09:40 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:10:02 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:10:27 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:10:43 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:11:39 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
+12:12:16 | 127.0.0.1 |  /localhost/index.php?_ijt=o17jh0roi0ppv57vooe192rq8n | 
