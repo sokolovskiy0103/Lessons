@@ -1,16 +1,17 @@
 <?php
 
 include_once('model/articles.php');
-$articles = getArticles();
+require_once('model/logs.php');
+
 $id = (int)($_GET['id'] ?? '');
-$post = $articles[$id] ?? null;
-$hasPost = ($post !== null);
+$article = getOneArticle($id);
+hasArticle($article);
+
 addLog();
 
-if ($hasPost) {
-    removeArticle($id);
-    echo "Article is deleted";
-} else echo "ERROR";
+removeArticle($id);
+echo "Article is deleted";
+
 ?>
 
 <hr>

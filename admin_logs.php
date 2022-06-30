@@ -1,5 +1,6 @@
 <?php
-require_once ("model/articles.php");
+
+require_once('model/logs.php');
 
 $files = getLogList();
 

@@ -1,74 +1,59 @@
 <?php
 
-	// your functions may be here
+require_once "db.php";
+require_once "cats.php";
 
 
-	function getArticles() : array{
-		return json_decode(file_get_contents('db/articles.json'), true);
-	}
+function getArticles(): array
+{
+    $sql = "SELECT * FROM articles";
+    return dbQuery($sql)->fetchAll();
+}
 
-	function addArticle(string $title, string $content) : bool{
-		$articles = getArticles();
+function getOneArticle($id): ?array
+{
+    $sql = "SELECT * FROM articles WHERE id_article = :id";
+    $params = ['id' => $id];
+    $query = dbQuery($sql, $params)->fetch();
+    if ($query === false) $query = null;
+    return  $query;
+}
 
-		$lastId = end($articles)['id'];
-		$id = $lastId + 1;
+function addArticle(string $title, string $content, int $id_cat): PDOStatement
+{
 
-		$articles[$id] = [
-			'id' => $id,
-			'title' => $title,
-			'content' => $content
-		];
+    $sql = "INSERT articles (title, content, id_cat) VALUES (:title, :content, :id_cat)";
+    $fields = ["title" => $title, "content" => $content, "id_cat" => $id_cat];
+    return dbQuery($sql, $fields);
 
-		saveArticles($articles);
-		return true;
-	}
+}
 
-	function removeArticle(int $id) : bool{
-		$articles = getArticles();
+function removeArticle(int $id): bool
+{
+    $sql = "DELETE FROM articles WHERE id_article= :id";
+    $params = ['id' => $id];
+    dbQuery($sql, $params);
+    return true;
+}
 
-		if(isset($articles[$id])){
-			unset($articles[$id]);
-			saveArticles($articles);
-			return true;
-		}
-		
-		return false;
-	}
+function editArticle(int $id, string $title, string $content, $id_cat): bool
+{
+    $sql = "UPDATE articles SET title = :title, content = :content, id_cat = :id_cat WHERE id_article = :id_article";
+    $fields = ["title" => $title, "content" => $content, "id_cat" => $id_cat, "id_article" => $id];
+    dbQuery($sql, $fields);
+    return true;
+}
 
-	function saveArticles(array $articles) : bool{
-		file_put_contents('db/articles.json', json_encode($articles));
-		return true;
-	}
-
-	function editArticle(int $id, string $title, string $content): bool
-    {
-        $articles = getArticles();
-        if(isset($articles[$id])){
-            $articles[$id] = [
-                'id' => $id,
-                'title' => $title,
-                'content' => $content
-            ];
-            saveArticles($articles);
-            return true;
-        }
-        return true;
+function hasArticle($article): bool
+{
+    if ($article === null) {
+        header("Location: 404.php");
+        exit();
     }
+    return true;
+}
 
-    function addLog()
-    {
-        $time = date("H:i:s");
-        $ip = $_SERVER['REMOTE_ADDR'];
-        $url = $_SERVER['REQUEST_URI'];
-        $refUrl = $_SERVER['HTTP_REFERER']??"direct";
-        $logName = "logs/" . date("Y-m-d"). ".txt";
-        $str = "$time | $ip |  $url | $refUrl\n";
-        file_put_contents($logName,$str,FILE_APPEND);
-    }
 
-    function getLogList():array
-    {
-        $list = scandir("logs");
-        return  array_filter($list, callback: fn($file) => is_file("logs/$file"));
-    }
+
+
 

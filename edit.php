@@ -1,28 +1,29 @@
 <?php
 
 include_once('model/articles.php');
-$articles = getArticles();
+require_once('model/logs.php');
 
 $err = false;
 $id = $_GET['id'];
+$article = getOneArticle($id);
+hasArticle($article);
 
-$title = $articles[$id]['title'];
-$content = $articles[$id]['content'];
-$message = "";
+$title = $article['title'];
+$content = $article['content'];
+
 addLog();
-
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $title = $_POST['title'];
     $content = $_POST['content'];
     if ($title !== "" && $content !== "") {
-        editArticle($id,$title, $content);
-        $message = "Job is done";
+        editArticle($id,$title, $content,1);
+        header("Location: article.php?id=$id");
+        exit();
     } else $err = true;
-
 }
-
 ?>
+
 <form method="post">
     <label>
         Title <input type="text" value="<?= $title ?>" name="title" placeholder="Title">
@@ -34,8 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 </form>
 <?php if ($err === true): ?>
     <h1>Error</h1>
-<?php elseif ($message !== ""): ?>
-    <h1><?= $message ?></h1>
 <?php endif ?>
 <hr>
 <a href="index.php">Move to main page</a>
